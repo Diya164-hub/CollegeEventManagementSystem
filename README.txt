@@ -36,6 +36,9 @@ Compiler: GCC / MinGW g++
 Editor: Visual Studio Code
 Application Type: Console-Based Application
 Data Storage: Text Files
+Compilation Command: g++ main.cpp Event.cpp Participant.cpp Organizer.cpp Person.cpp 
+ Registration.cpp EventSystem.cpp FileManager.cpp -o CollegeEventManagementSystem.exe
+Program Execution Command: .\CollegeEventManagementSystem.exe
 
 ==================================================
 4. MAIN FEATURES
