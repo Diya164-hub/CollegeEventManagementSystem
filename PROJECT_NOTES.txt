@@ -1,0 +1,1064 @@
+# COLLEGE EVENT MANAGEMENT SYSTEM
+
+Project Type:
+C++ Console-Based OOP Project
+
+Project Name:
+College Event Management System
+
+Submission Date:
+13/10/2026
+
+1. PROJECT PURPOSE
+   ==================
+
+The College Event Management System is a console-based C++ application developed using Object-Oriented Programming concepts.
+
+The system is designed to manage college events, participants and event registrations.
+
+The system allows the user to:
+
+* Add event records
+* Add participant records
+* Display records
+* Search event records
+* Update event records
+* Delete event records
+* Register participants for events
+* Cancel registrations
+* Generate reports
+* Save data into files
+* Load previously saved data
+
+2. PROJECT OBJECTIVES
+   =====================
+
+The main objectives of this project are:
+
+1. To develop a menu-driven College Event Management System.
+
+2. To demonstrate Object-Oriented Programming concepts in C++.
+
+3. To manage event and participant records efficiently.
+
+4. To implement event registration and cancellation.
+
+5. To use dynamic memory allocation.
+
+6. To implement inheritance and runtime polymorphism.
+
+7. To implement file handling and data persistence.
+
+8. To provide Add, Display, Search, Update and Delete operations.
+
+9. To generate a summary report of the system.
+
+10. To develop a complete working C++ console application.
+
+11. MAIN CLASSES
+    ===============
+
+The project contains the following major classes:
+
+1. Person
+
+2. Event
+
+3. Participant
+
+4. Organizer
+
+5. Registration
+
+6. EventSystem
+
+7. FileManager
+
+8. CLASS RESPONSIBILITIES
+   =========================
+
+## 4.1 Person
+
+Person is the base class used to demonstrate inheritance and runtime polymorphism.
+
+Main feature:
+
+* Virtual display() function
+* Virtual destructor
+
+Person acts as a common base class for Participant and Organizer.
+
+## 4.2 Event
+
+The Event class stores and manages event information.
+
+Data members:
+
+* eventId
+* name
+* date
+* venue
+* capacity
+
+Main functions:
+
+* Event()
+* Event(int id, string n, string d, string v, int c)
+* display()
+* update()
+* getEventId()
+* getName()
+* getDate()
+* getVenue()
+* getCapacity()
+
+## 4.3 Participant
+
+The Participant class stores participant information.
+
+Participant inherits from Person.
+
+Data members:
+
+* participantId
+* name
+* phone
+
+Main functions:
+
+* Participant()
+* Participant(int id, string n, string p)
+* display()
+* getParticipantId()
+* getName()
+* getPhone()
+
+## 4.4 Organizer
+
+The Organizer class stores organizer information.
+
+Organizer inherits from Person.
+
+Data members:
+
+* organizerId
+* name
+* department
+
+Main functions:
+
+* Organizer()
+* Organizer(int id, string n, string d)
+* display()
+
+## 4.5 Registration
+
+The Registration class manages the relationship between a participant and an event.
+
+Data members:
+
+* registrationId
+* eventId
+* participantId
+* status
+
+Main functions:
+
+* Registration()
+* Registration(int regId, int eId, int pId, string s)
+* registerParticipant()
+* cancel()
+* display()
+* getRegistrationId()
+* getEventId()
+* getParticipantId()
+* getStatus()
+
+## 4.6 EventSystem
+
+EventSystem is the main controller class of the project.
+
+It manages:
+
+* Events
+* Participants
+* Registrations
+* FileManager
+
+Dynamic arrays are used for storing records.
+
+Main functions:
+
+* addEvent()
+* addParticipant()
+* displayEvents()
+* displayParticipants()
+* displayRegistrations()
+* searchEvent()
+* updateEvent()
+* deleteEvent()
+* registerParticipant()
+* cancelRegistration()
+* generateReport()
+* saveData()
+* loadData()
+
+## 4.7 FileManager
+
+FileManager is responsible for saving and loading system data.
+
+Files used:
+
+* Data/events.txt
+* Data/participants.txt
+* Data/registrations.txt
+
+Main functions:
+
+* saveEvents()
+* saveParticipants()
+* saveRegistrations()
+* loadEvents()
+* loadParticipants()
+* loadRegistrations()
+
+5. CLASS RELATIONSHIPS
+   ======================
+
+The major relationships in the system are:
+
+1. Person is the base class of Participant.
+
+2. Person is the base class of Organizer.
+
+3. EventSystem manages Event objects.
+
+4. EventSystem manages Participant objects.
+
+5. EventSystem manages Registration objects.
+
+6. Registration connects a Participant with an Event.
+
+7. EventSystem uses FileManager for saving and loading data.
+
+8. INHERITANCE
+   ==============
+
+Inheritance is implemented using the following hierarchy:
+
+```
+             Person
+            /      \
+           /        \
+  Participant      Organizer
+```
+
+Participant and Organizer are derived classes of Person.
+
+7. RUNTIME POLYMORPHISM
+   =======================
+
+Runtime polymorphism is demonstrated using the virtual display() function of the Person class.
+
+Person contains:
+
+```
+virtual void display() = 0;
+```
+
+Participant and Organizer override the display() function.
+
+The virtual function allows the appropriate derived-class display() function to be selected at runtime.
+
+8. OOP CONCEPTS USED
+   ====================
+
+The project demonstrates the following C++ concepts:
+
+1. Classes and Objects
+
+2. Encapsulation
+
+3. Constructors
+
+4. Default Constructors
+
+5. Parameterized Constructors
+
+6. Destructors
+
+7. Inheritance
+
+8. Runtime Polymorphism
+
+9. Dynamic Memory Allocation
+
+10. File Handling
+
+11. Validation
+
+12. Exception Handling
+
+13. DYNAMIC MEMORY
+    =================
+
+Dynamic memory is used in EventSystem.
+
+The following dynamic arrays are created:
+
+```
+events = new Event[10];
+
+participants = new Participant[10];
+
+registrations = new Registration[10];
+```
+
+The memory is released in the destructor using:
+
+```
+delete[] events;
+delete[] participants;
+delete[] registrations;
+```
+
+This prevents memory from remaining allocated after the EventSystem object is destroyed.
+
+10. FILE HANDLING
+    =================
+
+The project uses file handling for data persistence.
+
+Data files:
+
+```
+Data/events.txt
+Data/participants.txt
+Data/registrations.txt
+```
+
+The FileManager class is responsible for:
+
+* Saving event records
+* Saving participant records
+* Saving registration records
+* Loading event records
+* Loading participant records
+* Loading registration records
+
+The data is stored using text files.
+
+11. MAIN MENU
+    =============
+
+The main menu of the system is:
+
+========================================
+COLLEGE EVENT MANAGEMENT SYSTEM
+===============================
+
+1. Add Record
+
+2. Display Records
+
+3. Search Event
+
+4. Update Event
+
+5. Delete Event
+
+6. Main Transaction / Process
+
+7. Generate Report
+
+8. Save / Load Data
+
+9. Exit
+
+10. ADD RECORD
+    ==============
+
+The Add Record menu contains:
+
+1. Add Event
+2. Add Participant
+3. Back to Main Menu
+
+The user can add new event and participant records.
+
+13. DISPLAY RECORDS
+    ===================
+
+The Display Records menu contains:
+
+1. Display Events
+2. Display Participants
+3. Display Registrations
+4. Back to Main Menu
+
+The user can view stored records.
+
+14. SEARCH RECORD
+    =================
+
+The system currently provides event search functionality.
+
+The user enters an Event ID.
+
+The system searches the event records.
+
+If the Event ID exists:
+
+```
+Event found!
+```
+
+The event details are displayed.
+
+If the Event ID does not exist:
+
+```
+Event not found!
+```
+
+# 15. UPDATE RECORD
+
+The user can update an existing event.
+
+The system asks for:
+
+* Event ID
+* New event name
+* New date
+* New venue
+* New capacity
+
+After successful modification:
+
+```
+Event updated successfully!
+```
+
+# 16. DELETE RECORD
+
+The user can delete an existing event.
+
+The system asks for the Event ID.
+
+If the Event ID is found, the event is removed from the active records.
+
+After deletion:
+
+```
+Event deleted successfully!
+```
+
+# 17. MAIN TRANSACTION
+
+The main transaction of the project is participant registration for an event.
+
+The transaction menu contains:
+
+1. Register Participant for Event
+
+2. Cancel Registration
+
+3. Back to Main Menu
+
+4. EVENT REGISTRATION PROCESS
+   ==============================
+
+The registration process is:
+
+1. User enters Registration ID.
+
+2. User enters Event ID.
+
+3. User enters Participant ID.
+
+4. System checks whether the event exists.
+
+5. System checks whether the participant exists.
+
+6. If both records exist, a registration is created.
+
+7. Registration status becomes "Registered".
+
+8. Success message is displayed.
+
+9. REGISTRATION CANCELLATION
+   =============================
+
+The user enters the Registration ID.
+
+The system searches for the registration.
+
+If the registration is found:
+
+* Its status is changed to "Cancelled".
+* A cancellation message is displayed.
+
+If the registration does not exist:
+
+```
+Registration not found!
+```
+
+# 20. REPORT GENERATION
+
+The Generate Report option displays a summary of the system.
+
+The report contains:
+
+* Total number of events
+* Total number of participants
+* Total number of registrations
+* Event details
+* Participant details
+* Registration details
+
+21. SAVE AND LOAD
+    =================
+
+The Save / Load menu contains:
+
+1. Save Data
+2. Load Data
+3. Back to Main Menu
+
+Save Data stores current records into text files.
+
+Load Data reads previously saved records from the text files.
+
+This provides data persistence between program executions.
+
+22. DATA PERSISTENCE TEST
+    =========================
+
+The persistence process should be tested as follows:
+
+1. Start the program.
+2. Add an event.
+3. Add a participant.
+4. Register the participant for the event.
+5. Select Save Data.
+6. Exit the program.
+7. Start the program again.
+8. Select Load Data.
+9. Display the records.
+10. Verify that previously saved records are available.
+
+This confirms that file handling and data persistence are working.
+
+23. PROJECT FLOW
+    ================
+
+The overall project flow is:
+
+START
+|
+v
+Create EventSystem Object
+|
+v
+Display Main Menu
+|
++------------------------------+
+|                              |
+v                              v
+Add / Display / Search      Update / Delete
+|                              |
++---------------+--------------+
+|
+v
+Main Transaction
+|
++-------+-------+
+|               |
+v               v
+Register         Cancel
+|
+v
+Report
+|
+v
+Save / Load
+|
+v
+Exit
+|
+v
+END
+
+24. USE CASE DIAGRAM
+    ====================
+
+Actors:
+
+1. Admin / Event Manager
+2. Participant
+
+Admin / Event Manager use cases:
+
+* Add Record
+* Display Record
+* Search Record
+* Update Record
+* Delete Record
+* Generate Report
+* Save / Load Data
+
+Participant use cases:
+
+* View Events
+* Register for Event
+* Cancel Registration
+
+System Boundary:
+
+College Event Management System
+
+25. CLASS DIAGRAM
+    =================
+
+Main classes:
+
+* Person
+* Event
+* Participant
+* Organizer
+* Registration
+* EventSystem
+* FileManager
+
+Inheritance:
+
+Person
+|
++---- Participant
+|
++---- Organizer
+
+EventSystem manages:
+
+* Event
+* Participant
+* Registration
+
+EventSystem uses:
+
+* FileManager
+
+Registration connects:
+
+* Event
+* Participant
+
+26. SEQUENCE DIAGRAM 1
+    ======================
+
+Main Transaction: Participant Registration for Event
+
+Basic flow:
+
+Participant
+|
+| Registration Request
+v
+EventSystem
+|
+| Check Event
+v
+Event
+|
+| Event Available
+v
+EventSystem
+|
+| Create Registration
+v
+Registration
+|
+| Register Participant
+v
+EventSystem
+|
+| Save Data
+v
+FileManager
+|
+| Success
+v
+EventSystem
+|
+v
+Participant
+
+27. SEQUENCE DIAGRAM 2
+    ======================
+
+Search Event Record
+
+Basic flow:
+
+User / Admin
+|
+| Enter Event ID
+v
+EventSystem
+|
+| Search Event
+v
+Event Records
+|
+| Check Event ID
+v
+EventSystem
+|
++---- Event Found ------> Display Event Details
+|
++---- Event Not Found --> Display "Event not found!"
+
+28. SOURCE FILE STRUCTURE
+    =========================
+
+CollegeEventManagementSystem/
+|
+|-- main.cpp
+|
+|-- Person.h
+|-- Person.cpp
+|
+|-- Event.h
+|-- Event.cpp
+|
+|-- Participant.h
+|-- Participant.cpp
+|
+|-- Organizer.h
+|-- Organizer.cpp
+|
+|-- Registration.h
+|-- Registration.cpp
+|
+|-- EventSystem.h
+|-- EventSystem.cpp
+|
+|-- FileManager.h
+|-- FileManager.cpp
+|
+|-- Data/
+|   |-- events.txt
+|   |-- participants.txt
+|   |-- registrations.txt
+|
+|-- Diagrams/
+|   |-- UseCaseDiagram.png
+|   |-- ClassDiagram.png
+|   |-- SequenceDiagram1.png
+|   |-- SequenceDiagram2.png
+|
+|-- PROJECT_NOTES.txt
+|-- README.txt
+
+29. MENU TO FUNCTION MAPPING
+    ============================
+
+30. Add Record
+    |
+    +-- Add Event
+    |     --> EventSystem::addEvent()
+    |
+    +-- Add Participant
+    --> EventSystem::addParticipant()
+
+31. Display Records
+    |
+    +-- Display Events
+    |     --> EventSystem::displayEvents()
+    |
+    +-- Display Participants
+    |     --> EventSystem::displayParticipants()
+    |
+    +-- Display Registrations
+    --> EventSystem::displayRegistrations()
+
+32. Search Event
+    --> EventSystem::searchEvent()
+
+33. Update Event
+    --> EventSystem::updateEvent()
+
+34. Delete Event
+    --> EventSystem::deleteEvent()
+
+35. Main Transaction
+    |
+    +-- Register Participant
+    |     --> EventSystem::registerParticipant()
+    |
+    +-- Cancel Registration
+    --> EventSystem::cancelRegistration()
+
+36. Generate Report
+    --> EventSystem::generateReport()
+
+37. Save / Load Data
+    |
+    +-- Save Data
+    |     --> EventSystem::saveData()
+    |
+    +-- Load Data
+    --> EventSystem::loadData()
+
+38. Exit
+    --> End Program
+
+39. TESTING PLAN
+    ================
+
+The project should be tested using at least 15 test cases.
+
+Planned test cases:
+
+T01 - Add valid event
+T02 - Add valid participant
+T03 - Display events
+T04 - Display participants
+T05 - Search existing event
+T06 - Search non-existing event
+T07 - Update existing event
+T08 - Update non-existing event
+T09 - Delete existing event
+T10 - Delete non-existing event
+T11 - Register participant for existing event
+T12 - Register with invalid event ID
+T13 - Cancel existing registration
+T14 - Generate report
+T15 - Save and load data successfully
+
+31. VALIDATION
+    ==============
+
+Validation will be used to prevent invalid operations.
+
+Examples:
+
+* Check whether records exist before searching.
+* Check whether an event exists before registration.
+* Check whether a participant exists before registration.
+* Check array limits.
+* Check registration existence before cancellation.
+* Handle invalid menu choices.
+
+32. EXCEPTION HANDLING
+    ======================
+
+Exception handling will be included where required to safely handle invalid input or file-related problems.
+
+The purpose of exception handling is to prevent the program from terminating unexpectedly because of invalid operations.
+
+33. PROJECT FILES
+    =================
+
+The project source code is divided into header and implementation files.
+
+Header files:
+
+* Person.h
+* Event.h
+* Participant.h
+* Organizer.h
+* Registration.h
+* EventSystem.h
+* FileManager.h
+
+Implementation files:
+
+* Person.cpp
+* Event.cpp
+* Participant.cpp
+* Organizer.cpp
+* Registration.cpp
+* EventSystem.cpp
+* FileManager.cpp
+
+Main file:
+
+* main.cpp
+
+34. IMPORTANT C++ CONCEPTS FOR VIVA
+    ===================================
+
+Classes:
+A class is a blueprint for creating objects.
+
+Object:
+An object is an instance of a class.
+
+Encapsulation:
+Data members are kept private and accessed through public functions.
+
+Constructor:
+A special function that is automatically called when an object is created.
+
+Destructor:
+A special function that is called when an object is destroyed.
+
+Inheritance:
+A derived class can acquire properties and functions of a base class.
+
+Polymorphism:
+The same function interface can behave differently for different objects.
+
+Virtual Function:
+A virtual function allows runtime polymorphism.
+
+Dynamic Memory:
+Memory is allocated during runtime using new and released using delete[].
+
+File Handling:
+Files are used to permanently store and retrieve data.
+
+35. IMPORTANT PROJECT RULE
+    ===========================
+
+The main.cpp file should mainly:
+
+* Create the EventSystem object.
+* Display the menu.
+* Take user choices.
+* Call appropriate EventSystem functions.
+
+The main business logic should remain inside the relevant classes instead of putting all logic in main.cpp.
+
+36. FINAL PROJECT CHECKLIST
+    ===========================
+
+Before submission, verify:
+
+[ ] Project compiles successfully.
+[ ] Program runs successfully.
+[ ] Minimum 5 classes are implemented.
+[ ] Constructors are implemented.
+[ ] Destructors are implemented.
+[ ] Inheritance is implemented.
+[ ] Runtime polymorphism is demonstrated.
+[ ] Dynamic memory is used and released correctly.
+[ ] Add operation works.
+[ ] Display operation works.
+[ ] Search operation works.
+[ ] Update operation works.
+[ ] Delete operation works.
+[ ] Main transaction works.
+[ ] Report generation works.
+[ ] File saving works.
+[ ] File loading works.
+[ ] Data persistence is tested.
+[ ] 15 test cases are completed.
+[ ] Use Case Diagram is prepared.
+[ ] Class Diagram is prepared.
+[ ] Sequence Diagram 1 is prepared.
+[ ] Sequence Diagram 2 is prepared.
+[ ] Screenshots are taken.
+[ ] README file is prepared.
+[ ] GitHub repository is created.
+[ ] GitHub link is added to the report/submission.
+[ ] Executable file is generated.
+[ ] Final report is completed.
+[ ] Submission template is completed.
+[ ] Final project folder is checked.
+[ ] Final ZIP file is prepared.
+
+37. CURRENT PROJECT STATUS
+    ==========================
+
+Completed:
+
+* Project planning
+* Project notes
+* Class responsibilities
+* Use Case Diagram planning
+* Class Diagram planning
+* Sequence Diagram 1 planning
+* Sequence Diagram 2 planning
+* Folder structure
+* Person class
+* Event class
+* Participant class
+* Organizer class
+* Registration class
+* EventSystem class
+* FileManager class
+* main.cpp menu
+* Dynamic memory implementation
+* File handling implementation
+
+Currently being tested:
+
+* Add Event
+* Add Participant
+* Display Records
+* Search Event
+* Update Event
+* Delete Event
+* Registration
+* Registration Cancellation
+* Report Generation
+* Save / Load
+
+38. NEXT DEVELOPMENT STEPS
+    ===========================
+
+The remaining work will be completed step by step:
+
+1. Test Add Event.
+2. Test Add Participant.
+3. Test Display Records.
+4. Test Search.
+5. Test Update.
+6. Test Delete.
+7. Test Registration.
+8. Test Cancellation.
+9. Test Report.
+10. Test Save and Load.
+11. Add/improve validation.
+12. Add exception handling.
+13. Demonstrate runtime polymorphism clearly.
+14. Complete sequence diagrams.
+15. Take program screenshots.
+16. Prepare 15 test cases with results.
+17. Prepare README.
+18. Generate final executable.
+19. Create GitHub repository.
+20. Add GitHub link to report.
+21. Complete project report.
+22. Complete submission template.
+23. Check final project folder.
+24. Create final ZIP for submission.
+
+# END OF PROJECT NOTES
+
+TESTING SUMMARY
+Project: College Event Management System
+
+Compile command:
+g++ main.cpp Event.cpp Participant.cpp Organizer.cpp Person.cpp 
+Registration.cpp EventSystem.cpp FileManager.cpp 
+-o CollegeEventManagementSystem.exe
+
+Program run:
+.\CollegeEventManagementSystem.exe
+
+Compilation: Successful
+Program Execution: Successful
+Main Menu: Verified
+Event Management: Tested
+Participant Management: Tested
+Event Registration: Tested
+Search and Update: Tested
+Report Generation: Tested
+File Save/Load: Tested
+
+Completed Tests: 10
+Remaining Tests: 5
